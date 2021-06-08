@@ -1,0 +1,60 @@
+name: github-pipeline
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  debug-linux-x86_64:
+    # needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: debug-linux-x86_64
+        run: |
+          sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y  # Install OS updates.
+          rustc --version && cargo --version  # Display rustc and cargo versions.
+          RUST_BACKTRACE=full cargo build --verbose
+          mkdir -p get-buildable-recipe/get-buildable-recipe
+          cp target/debug/main get-buildable-recipe/get-buildable-recipe/get-buildable-recipe
+          cp get-recipe.sh get-buildable-recipe/get-buildable-recipe/
+          chmod 755 get-buildable-recipe/get-buildable-recipe/get-buildable-recipe
+
+      - name: get-buildable-recipe-debug-linux-x86_64
+        uses: actions/upload-artifact@v2
+        with:
+          name: get-buildable-recipe-debug-linux-x86_64
+          path: |
+            get-buildable-recipe
+
+  release-linux-x86_64:
+    # needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: release-linux-x86_64
+        run: |
+          sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y  # Install OS updates.
+          rustc --version && cargo --version  # Display rustc and cargo versions.
+          RUST_BACKTRACE=full cargo build --release --verbose
+          mkdir -p get-buildable-recipe/get-buildable-recipe
+          cp target/release/main get-buildable-recipe/get-buildable-recipe/get-buildable-recipe
+          cp get-recipe.sh get-buildable-recipe/get-buildable-recipe/
+          strip -s get-buildable-recipe/get-buildable-recipe/get-buildable-recipe
+          chmod 755 get-buildable-recipe/get-buildable-recipe/get-buildable-recipe
+
+      - name: get-buildable-recipe-release-linux-x86_64
+        uses: actions/upload-artifact@v2
+        with:
+          name: get-buildable-recipe-release-linux-x86_64
+          path: |
+            get-buildable-recipe
