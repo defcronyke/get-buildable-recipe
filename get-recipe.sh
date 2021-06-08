@@ -22,13 +22,6 @@ get_buildable_recipe() {
     GET_BUILDABLE_RECIPE_AUTH_KEY="$2"
   fi
 
-  # if [ $# -lt 2 ]; then
-  #   get_buildable_recipe_usage
-  #   return 2
-  # else
-  #   recipe_url="$2"
-  # fi
-
   if [ $# -lt 1 ]; then
     get_buildable_recipe_usage
     return 3

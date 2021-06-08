@@ -15,7 +15,6 @@ type Result<T> = std::result::Result<T, Rejection>;
 #[derive(Deserialize)]
 struct Recipe {
     url: String,
-    // api: String,
 }
 
 #[derive(Debug, Serialize)]
