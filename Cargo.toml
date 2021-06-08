@@ -3,7 +3,7 @@
 
 [package]
 name = "get-buildable-recipe"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Jeremy Carter <jeremy@jeremycarter.ca>"]
 edition = "2018"
 default-run = "main"
