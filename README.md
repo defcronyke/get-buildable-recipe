@@ -8,6 +8,9 @@ Copyright (c) 2021 `Jeremy Carter <jeremy@jeremycarter.ca>`
 
 Get Buildable recipe in JSON format.
 
+GitLab Repository: [https://gitlab.com/defcronyke/get-buildable-recipe](https://gitlab.com/defcronyke/get-buildable-recipe)  
+GitHub Repository: [https://github.com/defcronyke/get-buildable-recipe](https://github.com/defcronyke/get-buildable-recipe)
+
 ---
 
 ## Automated builds from the master branch
