@@ -15,7 +15,7 @@ type Result<T> = std::result::Result<T, Rejection>;
 #[derive(Deserialize)]
 struct Recipe {
     url: String,
-    api: String,
+    // api: String,
 }
 
 #[derive(Debug, Serialize)]
@@ -45,7 +45,7 @@ async fn index_handler(token: String, addr: String, r: Recipe) -> Result<impl Re
 
     let output = Command::new("/bin/bash")
         .arg("-c")
-        .arg(format!("./get-recipe.sh {} {} '{}'", r.url, r.api, token))
+        .arg(format!("./get-recipe.sh {} '{}'", r.url, token))
         .output()
         .expect("failed to execute process");
 

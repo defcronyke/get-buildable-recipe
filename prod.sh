@@ -8,7 +8,7 @@
 get_buildable_recipe_prod() {
   input_str="$@"
 
-  docker build -t gcr.io/get-buildable-recipe/get_buildable_recipe:latest .
+  docker build --no-cache -t gcr.io/get-buildable-recipe/get_buildable_recipe:latest .
 }
 
 get_buildable_recipe_prod "$@"

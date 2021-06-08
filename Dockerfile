@@ -12,6 +12,7 @@ COPY ./Cargo.toml ./Cargo.toml
 
 ADD . ./
 ADD ./src ./src
+ADD ./src/main.rs ./src/main.rs
 
 RUN cargo build --release
 
@@ -47,6 +48,7 @@ RUN groupadd $APP_USER && \
     mkdir -p ${APP}
 
 ADD ./get-recipe.sh ${APP}/get-recipe.sh
+ADD ./creds.env ${APP}/creds.env
 COPY --from=build /get-buildable-recipe/target/release/main ${APP}/main
 
 RUN chown -R $APP_USER:$APP_USER ${APP}

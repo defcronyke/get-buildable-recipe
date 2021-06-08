@@ -68,18 +68,18 @@ Headers:
 
 Request Route:
 
-`GET /?url={recipe_page_id}&api={recipe_api_id}`
+`GET /?url={recipe_page_id}`
 
 Example:
 
 ```shell
-curl -H 'Authorization: Bearer ...' 'http://127.0.0.1:8080?url={recipe_page_id}&api={recipe_api_id}'
+curl -H 'Authorization: Bearer ...' 'http://127.0.0.1:8080?url={recipe_page_id}'
 ```
 
 Online Version:
 
 ```shell
-curl -H 'Authorization: Bearer ...' 'https://get-buildable-recipe-ytyzuol74q-uk.a.run.app?url={recipe_page_id}&api={recipe_api_id}'
+curl -H 'Authorization: Bearer ...' 'https://api.buildable.dev/trigger/v2/live-901b6649-f3af-430f-b0c4-97e045685ee5?url={recipe_page_id}'
 ```
 
 ---
