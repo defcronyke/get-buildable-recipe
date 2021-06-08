@@ -8,6 +8,8 @@ Copyright (c) 2021 `Jeremy Carter <jeremy@jeremycarter.ca>`
 
 Get Buildable recipe in JSON format.
 
+_WARNING! - This in an UNOFFICIAL API that interfaces with Buildable. Be aware that if you use this, you will be sending private Buildable account details to an unofficial 3rd-party server that isn't affiliated with Buildable. Please only use this if you trust the 3rd-party service with your account's access token. Your token will not be logged in the server or used for anything besides retrieving your recipe's details, and is only stored on the server briefly while it's being used to service your HTTP request._
+
 GitLab Repository: [https://gitlab.com/defcronyke/get-buildable-recipe](https://gitlab.com/defcronyke/get-buildable-recipe)  
 GitHub Repository: [https://github.com/defcronyke/get-buildable-recipe](https://github.com/defcronyke/get-buildable-recipe)
 
